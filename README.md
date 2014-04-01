@@ -1,24 +1,36 @@
 # Capistrano::Slackbot
 
-TODO: Write a gem description
+Slack intergation for Capistrano 3.
 
 ## Installation
 
 Add this line to your application's Gemfile:
-
-    gem 'capistrano-slackbot'
+```yaml
+gem 'capistrano-slackbot', github: 'whatthewhat/capistrano-slackbot'
+```
 
 And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install capistrano-slackbot
+```bash
+$ bundle
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Add capistrano/slackbot to your Capfile:
+```ruby
+# Capfile
+
+require "capistrano/slackbot"
+```
+
+Then add some configuation options to your deploy.rb:
+```ruby
+# deploy.rb
+
+set :slack_team, "your-team"
+set :slack_token, ENV["SLACK_TOKEN"] # from your "Incoming Webhook" integration
+set :slack_options, { channel: "#general", icon_emoji: ":shipit:" } # arbitrary additional options passed to slack
+```
 
 ## Contributing
 
