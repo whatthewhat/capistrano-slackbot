@@ -6,7 +6,7 @@ Slack intergation for Capistrano 3.
 
 Add this line to your application's Gemfile:
 ```yaml
-gem 'capistrano-slackbot', github: 'whatthewhat/capistrano-slackbot'
+gem "capistrano-slackbot"
 ```
 
 And then execute:

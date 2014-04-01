@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mikhail.topolskiy@gmail.com"]
   spec.summary       = %q{Slack integration for Capistrano 3}
   spec.description   = %q{Send capistrano deployment notificatons to https://slack.com/}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/whatthewhat/capistrano-slackbot"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
