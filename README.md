@@ -1,4 +1,4 @@
-# Capistrano::Slackbot
+# Capistrano::Slackbot [![Build Status](https://travis-ci.org/whatthewhat/capistrano-slackbot.svg?branch=master)](https://travis-ci.org/whatthewhat/capistrano-slackbot) [![Gem Version](https://badge.fury.io/rb/capistrano-slackbot.svg)](http://badge.fury.io/rb/capistrano-slackbot)
 
 Slack intergation for Capistrano 3.
 
