@@ -32,6 +32,10 @@ set :slack_token, ENV["SLACK_TOKEN"] # from your "Incoming Webhook" integration
 set :slack_options, { channel: "#general", icon_emoji: ":shipit:" } # arbitrary additional options passed to slack
 ```
 
+And deploy away!
+
+![capistrano-slackbot](https://googledrive.com/host/0B03_MIH-1qgoX3A4OWh5djFWUmc/capistrano-slackbot.png)
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/capistrano-slackbot/fork )
