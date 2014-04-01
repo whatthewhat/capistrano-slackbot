@@ -1,7 +1,4 @@
 require "capistrano/slackbot/version"
+require "capistrano/slackbot/slack_notifier"
 
-module Capistrano
-  module Slackbot
-    # Your code goes here...
-  end
-end
+load File.expand_path('../tasks/slack.rake', __FILE__)
