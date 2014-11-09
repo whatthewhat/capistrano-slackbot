@@ -19,7 +19,7 @@ describe SlackNotifier do
       subject.notify("Oh Hai!")
 
       expect(WebMock).to have_requested(:post,
-        "https://some-team.slack.com/services/hooks/incoming-webhook?token=secret_token"
+        "https://some-team.slack.com/services/hooks/slackbot?token=secret_token"
       ).with( body: { text: "Oh Hai!", custom_option: "hello there" }.to_json )
     end
   end

@@ -16,7 +16,7 @@ class SlackNotifier
 
   private
   def url
-    "https://#{ @team }.slack.com/services/hooks/incoming-webhook?token=#{ @token }"
+    "https://#{ @team }.slack.com/services/hooks/slackbot?token=#{ @token }"
   end
 
   def connection
