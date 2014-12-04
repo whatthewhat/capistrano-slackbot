@@ -3,8 +3,7 @@ namespace :slack do
   task :finished do
     run_locally do
       SlackNotifier.new(
-        team: fetch(:slack_team),
-        token: fetch(:slack_token),
+        webhook_url: fetch(:slack_webhook_url),
         options: fetch(:slack_options, {})
       ).notify(revision_log_message)
     end

@@ -2,6 +2,8 @@
 
 Slack intergation for Capistrano 3.
 
+![capistrano-slackbot](https://googledrive.com/host/0B03_MIH-1qgoX3A4OWh5djFWUmc/capistrano-slackbot.png)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -27,14 +29,11 @@ Then add some configuation options to your deploy.rb:
 ```ruby
 # deploy.rb
 
-set :slack_team, "your-team"
-set :slack_token, ENV["SLACK_TOKEN"] # from your "Incoming Webhook" integration
+set :slack_webhook_url, ENV["SLACK_WEBHOOK"] # from your "Incoming Webhook" integration
 set :slack_options, { channel: "#general", icon_emoji: ":shipit:" } # arbitrary additional options passed to slack
 ```
 
 And deploy away!
-
-![capistrano-slackbot](https://googledrive.com/host/0B03_MIH-1qgoX3A4OWh5djFWUmc/capistrano-slackbot.png)
 
 ## Contributing
 

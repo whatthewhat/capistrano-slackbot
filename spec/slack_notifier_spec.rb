@@ -3,24 +3,24 @@ require "capistrano/slackbot/slack_notifier"
 
 describe SlackNotifier do
   before(:each) do
-    stub_request(:post, /slack.com/)
+    stub_request(:post, /webhook.example.com/)
   end
 
   describe "#notify" do
-    subject {
-      SlackNotifier.new(
-        team: "some-team",
-        token: "secret_token",
-        options: { custom_option: "hello there" }
-      )
-    }
-
     it "posts to slack's webhook with right params" do
-      subject.notify("Oh Hai!")
+      SlackNotifier.new(
+        webhook_url: "https://webhook.example.com/",
+        options: { custom_option: "hello there" }
+      ).notify("Oh Hai!")
 
-      expect(WebMock).to have_requested(:post,
-        "https://some-team.slack.com/services/hooks/incoming-webhook?token=secret_token"
-      ).with( body: { text: "Oh Hai!", custom_option: "hello there" }.to_json )
+      expect(WebMock).to have_requested(:post, "https://webhook.example.com/")
+        .with( body: { text: "Oh Hai!", custom_option: "hello there" }.to_json )
+    end
+
+    it "raises ArgumentError if webhook_url is not set" do
+      expect {
+        SlackNotifier.new
+      }.to raise_error(ArgumentError)
     end
   end
 end
