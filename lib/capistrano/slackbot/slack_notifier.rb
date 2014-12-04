@@ -2,22 +2,22 @@ require "json"
 require "faraday"
 
 class SlackNotifier
+  attr_reader :webhook_url
+
   def initialize(args = {})
-    @team = args.fetch(:team) { raise ArgumentError, "slack team not set!" }
-    @token = args.fetch(:token) { raise ArgumentError, "slack token not set!" }
+    @webhook_url = args.fetch(:webhook_url) {
+      raise ArgumentError, "[capistrano-slackbot] webhook_url not set!"
+    }
     @options = args.fetch(:options) { {} }
   end
 
   def notify(text)
     payload = { text: text }.merge(@options)
 
-    connection.post url, payload.to_json
+    connection.post webhook_url, payload.to_json
   end
 
   private
-  def url
-    "https://#{ @team }.slack.com/services/hooks/incoming-webhook?token=#{ @token }"
-  end
 
   def connection
     Faraday.new do |faraday|
